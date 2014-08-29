@@ -31,11 +31,11 @@ public class Throwup extends Subsystem {
         //setDefaultCommand(new MySpecialCommand());
     }
     
-    public void Out()
+    public void In()
     {
         popBall.set(DoubleSolenoid.Value.kForward);
     }
-    public void In()
+    public void Out()
     {
         popBall.set(DoubleSolenoid.Value.kReverse);
     }
