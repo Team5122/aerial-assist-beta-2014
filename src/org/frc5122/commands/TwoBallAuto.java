@@ -9,7 +9,7 @@
 // it from being updated in the future.
 
 
-package org.usfirst.frc5122.Fred.commands;
+package org.frc5122.commands;
 import edu.wpi.first.wpilibj.command.CommandGroup;
 import edu.wpi.first.wpilibj.command.WaitCommand;
 
