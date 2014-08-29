@@ -17,7 +17,7 @@ import org.frc5122.RobotMap;
 public class  WaitForCheesy extends Command {
 	private double delay;
 	private double start;
-	private final int MIN_COUNT = 3;
+	//private final int MIN_COUNT = 3;
     public WaitForCheesy(double delay) {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);

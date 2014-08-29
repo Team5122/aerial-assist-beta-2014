@@ -8,7 +8,6 @@
 // update. Deleting the comments indicating the section will prevent
 // it from being updated in the future.
 package org.frc5122;
-import com.team254.lib.CheesyVisionServer;
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
@@ -32,7 +31,6 @@ public class Robot extends IterativeRobot {
     public static Drivetrain drivetrain;
     public static Thrower thrower;
     public static Arm arm;
-    public static Distance distance;
     public static Decorations decorations;
     public static IR iR;
     public static Throwup throwup;
@@ -50,7 +48,6 @@ public class Robot extends IterativeRobot {
         drivetrain = new Drivetrain();
         thrower = new Thrower();
         arm = new Arm();
-        distance = new Distance();
         decorations = new Decorations();
         iR = new IR();
         throwup = new Throwup();

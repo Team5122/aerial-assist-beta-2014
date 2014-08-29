@@ -36,7 +36,7 @@ public class IRAuto extends CommandGroup {
         // arm.
         
         double speedFWD = 0.7;
-        double speedBAK = -0.8;
+        //double speedBAK = -0.8;
         double time2goal = 2;
         // Single ball with wait based on IR
         addSequential(new Debug("Starting Autonomous"));

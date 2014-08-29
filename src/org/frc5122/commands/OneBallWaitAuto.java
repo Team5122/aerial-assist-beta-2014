@@ -36,7 +36,7 @@ public class OneBallWaitAuto extends CommandGroup {
         // arm.
         
         double speedFWD = 0.45;
-        double speedBAK = -0.54;
+        //double speedBAK = -0.54;
         double time2goal = 2;
         // Single ball with wait based on IR
         addSequential(new Debug("Starting Autonomous"));
