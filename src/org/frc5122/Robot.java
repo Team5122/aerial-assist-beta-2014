@@ -32,7 +32,6 @@ public class Robot extends IterativeRobot {
     public static Drivetrain drivetrain;
     public static Thrower thrower;
     public static Arm arm;
-    public static Pneumatic pneumatic;
     public static Distance distance;
     public static Decorations decorations;
     public static IR iR;
@@ -51,7 +50,6 @@ public class Robot extends IterativeRobot {
         drivetrain = new Drivetrain();
         thrower = new Thrower();
         arm = new Arm();
-        pneumatic = new Pneumatic();
         distance = new Distance();
         decorations = new Decorations();
         iR = new IR();
