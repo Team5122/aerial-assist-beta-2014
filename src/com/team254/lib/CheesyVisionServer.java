@@ -6,19 +6,20 @@ package com.team254.lib;
  */
 
 import edu.wpi.first.wpilibj.Timer;
+
 import java.io.IOException;
 import java.io.InputStream;
+import java.net.ServerSocket;
+import java.net.Socket;
 import java.util.Vector;
-import javax.microedition.io.Connector;
-import javax.microedition.io.ServerSocketConnection;
-import javax.microedition.io.SocketConnection;
+
 
 public class CheesyVisionServer implements Runnable {
   
   private static CheesyVisionServer instance_;
   Thread serverThread = new Thread(this);
   private int listenPort_;
-  private Vector connections_;
+  private Vector<Socket> connections_;
   private boolean counting_ = false;
   private int leftCount_ = 0, rightCount_ = 0, totalCount_ = 0;
   private boolean curLeftStatus_ = false, curRightStatus_ = false;
@@ -46,7 +47,7 @@ public class CheesyVisionServer implements Runnable {
 
   private CheesyVisionServer(int port) {
     listenPort_ = port;
-    connections_ = new Vector();
+    connections_ = new Vector<Socket>();
   }
   
   public boolean hasClientConnection() {
@@ -101,25 +102,25 @@ public class CheesyVisionServer implements Runnable {
   // This class handles incoming TCP connections
   private class VisionServerConnectionHandler implements Runnable {
 
-    SocketConnection connection;
+    Socket connection;
 
-    public VisionServerConnectionHandler(SocketConnection c) {
+    public VisionServerConnectionHandler(Socket c) {
       connection = c;
     }
 
     public void run() {
       try {
-        InputStream is = connection.openInputStream();
+        InputStream is = connection.getInputStream();
 
-        int ch = 0;
+        //int ch = 0;
         byte[] b = new byte[1024];
         double timeout = 10.0;
         double lastHeartbeat = Timer.getFPGATimestamp();
         CheesyVisionServer.this.lastHeartbeatTime_ = lastHeartbeat;
         while (Timer.getFPGATimestamp() < lastHeartbeat + timeout) {
-          boolean gotData = false;
+          //boolean gotData = false;
           while (is.available() > 0) {
-            gotData = true;
+            //gotData = true;
             int read = is.read(b);
             for (int i = 0; i < read; ++i) {
               byte reading = b[i];
@@ -151,11 +152,11 @@ public class CheesyVisionServer implements Runnable {
   // This method listens for incoming connections and spawns new
   // VisionServerConnectionHandlers to handle them
   public void run() {
-    ServerSocketConnection s = null;
+    ServerSocket s = null;
     try {
-      s = (ServerSocketConnection) Connector.open("serversocket://:" + listenPort_);
+      s = new ServerSocket(listenPort_);
       while (listening_) {
-        SocketConnection connection = (SocketConnection) s.acceptAndOpen();
+        Socket connection = (Socket) s.accept();
         Thread t = new Thread(new CheesyVisionServer.VisionServerConnectionHandler(connection));
         t.start();
         connections_.addElement(connection);
