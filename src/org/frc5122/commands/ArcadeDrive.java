@@ -31,14 +31,14 @@ public class  ArcadeDrive extends Command {
     protected void execute() {
         //psuedo debouncing. Only change the direction on press and release.
         //Note: Store state in subsystem and commands can change the state.
-        if (pressed && !Robot.oi.getReverseButton()) {
-            pressed = false;
-            reversed = !reversed;
-        }
-        if(Robot.oi.getReverseButton())
-        {
-            pressed = true;
-        }
+//        if (pressed && !Robot.oi.getReverseButton()) {
+//            pressed = false;
+//            reversed = !reversed;
+//        }
+//        if(Robot.oi.getReverseButton())
+//        {
+//            pressed = true;
+//        }
         
         Robot.drivetrain.takeJoystickInputs(Robot.oi.getDriverJS(), reversed);
     }
