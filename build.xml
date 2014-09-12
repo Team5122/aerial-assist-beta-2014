@@ -11,7 +11,7 @@
   -->
 
   <!-- By default the system version of WPI is used -->
-  <!-- <property name="version" value=""/> -->
+  <property name="version" value="current"/>
 
   <!-- By default the system team number is used -->
   <!-- <property name="team-number" value=""/> -->
@@ -25,6 +25,6 @@
   <property file="build.properties"/>
   <property file="${user.home}/wpilib/java/${version}/ant/build.properties"/>
   
-  <import file="${wpilib.ant.dir}/build.xml"/>
+  <import file="C:\Users\R2D2\wpilib\java\current\ant\build.xml"/>
 
 </project> 
