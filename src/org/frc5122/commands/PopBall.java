@@ -24,6 +24,7 @@ public class  PopBall extends Command {
     }
     // Called just before this Command runs the first time
     protected void initialize() {
+    	System.out.println("Pop Ball Init");
         this.setTimeout(2); //give it 2 seconds to go out
         Robot.throwup.Out();
 		Robot.arm.RollerOut();
@@ -37,9 +38,11 @@ public class  PopBall extends Command {
     }
     // Called once after isFinished returns true
     protected void end() {
+    	System.out.println("Pop Ball End");
     }
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     protected void interrupted() {
+    	System.out.println("Pop Ball Interrupted");
     }
 }

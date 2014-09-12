@@ -28,6 +28,7 @@ public class  WaitForCheesy extends Command {
     // Called just before this Command runs the first time
     protected void initialize() {
 		start = timeSinceInitialized();
+		System.out.println("Starting Cheesy Auto");
     }
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
@@ -37,10 +38,12 @@ public class  WaitForCheesy extends Command {
 //        if (RobotMap.CheesyServer.getLeftCount() > MIN_COUNT || RobotMap.CheesyServer.getRightCount() > MIN_COUNT) 
 		if (!(RobotMap.CheesyServer.getLeftStatus() || RobotMap.CheesyServer.getRightStatus()))
 		{
+			System.out.println("No Delay");
             return true;
         }
         else
         {
+        	System.out.println("Delay");
 			return (timeSinceInitialized()-start) > delay;
         }
     }

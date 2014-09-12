@@ -66,7 +66,7 @@ public class  PullBackThrower extends Command {
             waiting = true;
             System.out.println("Done Pullback "+timeSinceInitialized()+" "+Robot.thrower.Ready());
         } else {
-                System.out.println("Pulling Back "+timeSinceInitialized());
+                //System.out.println("Pulling Back "+timeSinceInitialized());
         }
     }
     // Make this return true when this Command no longer needs to run execute()

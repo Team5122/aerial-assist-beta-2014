@@ -33,10 +33,12 @@ public class Throwup extends Subsystem {
     
     public void In()
     {
+    	System.out.println("In");
         popBall.set(DoubleSolenoid.Value.kForward);
     }
     public void Out()
     {
+    	System.out.println("Out");
         popBall.set(DoubleSolenoid.Value.kReverse);
     }
 }
