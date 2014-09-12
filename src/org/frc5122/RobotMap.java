@@ -57,10 +57,10 @@ public class RobotMap {
         drivetrainRobotDrive4.setExpiration(0.5);
         drivetrainRobotDrive4.setSensitivity(0.5);
         drivetrainRobotDrive4.setMaxOutput(1.0);
-        drivetrainRobotDrive4.setInvertedMotor(RobotDrive.MotorType.kFrontLeft, true);
-        drivetrainRobotDrive4.setInvertedMotor(RobotDrive.MotorType.kRearLeft, true);
-        drivetrainRobotDrive4.setInvertedMotor(RobotDrive.MotorType.kFrontRight, true);
-        drivetrainRobotDrive4.setInvertedMotor(RobotDrive.MotorType.kRearRight, true);
+        drivetrainRobotDrive4.setInvertedMotor(RobotDrive.MotorType.kFrontLeft, false);
+        drivetrainRobotDrive4.setInvertedMotor(RobotDrive.MotorType.kRearLeft, false);
+        drivetrainRobotDrive4.setInvertedMotor(RobotDrive.MotorType.kFrontRight, false);
+        drivetrainRobotDrive4.setInvertedMotor(RobotDrive.MotorType.kRearRight, false);
         throwerIndexer = new Victor(5);
 	LiveWindow.addActuator("Thrower", "Indexer", (Victor) throwerIndexer);
         
