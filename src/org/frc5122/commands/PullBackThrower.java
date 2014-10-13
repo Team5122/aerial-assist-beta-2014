@@ -40,6 +40,10 @@ public class  PullBackThrower extends Command {
     }
     // Called just before this Command runs the first time
     protected void initialize() {
+    	if(Robot.thrower.Ready()) {
+    		finished = true;
+    		return;
+    	}
         System.out.println("PullBack Init: "+timeSinceInitialized());
         Robot.thrower.PullBack();
         finished = false;

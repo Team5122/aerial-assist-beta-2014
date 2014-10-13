@@ -55,6 +55,9 @@ public class Drivetrain extends Subsystem {
     {
         robotDrive4.arcadeDrive(moveValue*-1, rotateValue, true);
     }
+    public void TankDrive(double leftValue, double rightValue) {
+    	robotDrive4.tankDrive(leftValue, rightValue);
+    }
     public void setSafetyEnabled(boolean en)
     {
         System.out.println("Set Safety "+en);

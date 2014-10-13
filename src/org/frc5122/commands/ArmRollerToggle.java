@@ -13,8 +13,8 @@ import org.frc5122.Robot;
 /**
  *
  */
-public class  ArmRollerOff extends Command {
-    public ArmRollerOff() {
+public class  ArmRollerToggle extends Command {
+    public ArmRollerToggle() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
 	
@@ -24,7 +24,7 @@ public class  ArmRollerOff extends Command {
     }
     // Called just before this Command runs the first time
     protected void initialize() {
-        Robot.arm.RollerOff();
+        Robot.arm.RollerToggle();
     }
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {

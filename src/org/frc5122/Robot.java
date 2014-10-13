@@ -14,6 +14,7 @@ import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+
 import org.frc5122.commands.*;
 import org.frc5122.subsystems.*;
 /**
@@ -68,6 +69,7 @@ public class Robot extends IterativeRobot {
 		autoChooser.addDefault("Cheesy Vision Auto", new CheesyAuto());
         autoChooser.addObject("One Ball Auto", new OneBallWaitAuto()); //one ball
         autoChooser.addObject("Two Ball Auto", new TwoBallAuto());
+        autoChooser.addObject("RoboRodeo", new Auto_RoboRodeo());
         //autoChooser.addObject("One Ball Auto", new Auto());
         SmartDashboard.putData("Auto mode Chooser", autoChooser);
 		
@@ -79,6 +81,7 @@ public class Robot extends IterativeRobot {
         RobotMap.CheesyServer.startSamplingCounts();
         Robot.decorations.setAuto();
 		Robot.drivetrain.setSafetyEnabled(false);
+		RobotMap.gyro.reset();
 		autonomousCommand = (Command) autoChooser.getSelected();
                 //new Auto();
         // schedule the autonomous command (example)
@@ -99,7 +102,7 @@ public class Robot extends IterativeRobot {
         // continue until interrupted by another command, remove
         // this line or comment it out.
         if (autonomousCommand != null) autonomousCommand.cancel();
-        Robot.drivetrain.setSafetyEnabled(true);
+        Robot.drivetrain.setSafetyEnabled(false);
     }
     /**
      * This function is called periodically during operator control
