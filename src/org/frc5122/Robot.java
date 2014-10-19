@@ -70,11 +70,15 @@ public class Robot extends IterativeRobot {
         autoChooser.addObject("One Ball Auto", new OneBallWaitAuto()); //one ball
         autoChooser.addObject("Two Ball Auto", new TwoBallAuto());
         autoChooser.addObject("RoboRodeo", new Auto_RoboRodeo());
+        autoChooser.addObject("RoboRodeoPID", new Auto_RoboRodeo_PID());
         //autoChooser.addObject("One Ball Auto", new Auto());
         SmartDashboard.putData("Auto mode Chooser", autoChooser);
 		
 		RobotMap.CheesyServer.setPort(RobotMap.cheesylistenPort);
         RobotMap.CheesyServer.start();
+        
+        SmartDashboard.putData("Turn", new Turn_PID(90, .8, .0186));
+        SmartDashboard.putData("Turn2", new Turn_PID2(90, .0186));
     }
     public void autonomousInit() {
 		RobotMap.CheesyServer.reset();
@@ -109,14 +113,14 @@ public class Robot extends IterativeRobot {
      */
     public void teleopPeriodic() {
         Scheduler.getInstance().run();
-        LiveWindow.run();
-        LiveWindow.addSensor("Distance", "Ultrasonic", RobotMap.distanceUltrasonic);
+//        LiveWindow.run();
+//        LiveWindow.addSensor("Distance", "Ultrasonic", RobotMap.distanceUltrasonic);
     }
     /**
      * This function called periodically during test mode
      */
     public void testPeriodic() {
-        LiveWindow.run();
+//        LiveWindow.run();
     }
     public void disabledInit() {
 		RobotMap.CheesyServer.stopSamplingCounts();

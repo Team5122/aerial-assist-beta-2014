@@ -8,20 +8,24 @@ public class Auto_RoboRodeo extends CommandGroup {
 		addSequential(new Debug("Starting RoboRodeo Dance"));
 		                //Drive(double duration, double move, double rotate)
 		
-		addSequential(new Drive(1.15, .75, 0));
+		double speed = .83;
+		double turnspeed = .9;
+		double turn = 250;
+		
+		addSequential(new Drive(1, speed, 0));
 		addSequential(new Debug("Starting Turn"));
-		addSequential(new Turn(260, .75, true));
+		addSequential(new Turn(turn, turnspeed, true));
 		for (int i =0; i<2; i++) {
-			addSequential(new Drive(.9, .75, 0));
+			addSequential(new Drive(.9, speed, 0));
 			addSequential(new Debug("Starting Turn"));
-			addSequential(new Turn(260, .75, true));
+			addSequential(new Turn(turn, turnspeed, true));
 		}
-		addSequential(new Drive(.85, .75, 0));
+		addSequential(new Drive(.85, speed, 0));
 		addSequential(new Debug("Starting Turn"));
-		addSequential(new Turn(260-45, .75, true));
+		addSequential(new Turn(turn-45, turnspeed, true));
 		//go to middle
 		addParallel(new PopBall());
-		addSequential(new Drive(.85/2, .75, 0));
-		addSequential(new Turn(360*5, .9, true));
+		addSequential(new Drive(.85/2, speed, 0));
+		addSequential(new Turn(360*10, 1, true));
 	}
 }

@@ -61,11 +61,13 @@ public class Arm extends Subsystem {
     {
         roller.set(0); //turn roller off
         isRollerOn = false;
+        System.out.println("Roller Off");
     }
     public void RollerOn()
     {
         roller.set(1); //turn roller off
         isRollerOn = true;
+        System.out.println("Roller On");
     }
 	public void RollerOut()
 	{
