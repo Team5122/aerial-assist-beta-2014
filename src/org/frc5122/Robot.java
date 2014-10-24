@@ -77,7 +77,7 @@ public class Robot extends IterativeRobot {
 		RobotMap.CheesyServer.setPort(RobotMap.cheesylistenPort);
         RobotMap.CheesyServer.start();
         
-        SmartDashboard.putData("Turn", new Turn_PID(90, .8, .0186));
+        SmartDashboard.putData("Turn 90", new Turn(90));
         SmartDashboard.putData("Turn2", new Turn_PID2(90, .0186));
     }
     public void autonomousInit() {
@@ -120,7 +120,7 @@ public class Robot extends IterativeRobot {
      * This function called periodically during test mode
      */
     public void testPeriodic() {
-//        LiveWindow.run();
+        LiveWindow.run();
     }
     public void disabledInit() {
 		RobotMap.CheesyServer.stopSamplingCounts();

@@ -14,18 +14,18 @@ public class Auto_RoboRodeo extends CommandGroup {
 		
 		addSequential(new Drive(1, speed, 0));
 		addSequential(new Debug("Starting Turn"));
-		addSequential(new Turn(turn, turnspeed, true));
+		addSequential(new TurnOld(turn, turnspeed, true));
 		for (int i =0; i<2; i++) {
 			addSequential(new Drive(.9, speed, 0));
 			addSequential(new Debug("Starting Turn"));
-			addSequential(new Turn(turn, turnspeed, true));
+			addSequential(new TurnOld(turn, turnspeed, true));
 		}
 		addSequential(new Drive(.85, speed, 0));
 		addSequential(new Debug("Starting Turn"));
-		addSequential(new Turn(turn-45, turnspeed, true));
+		addSequential(new TurnOld(turn-45, turnspeed, true));
 		//go to middle
 		addParallel(new PopBall());
 		addSequential(new Drive(.85/2, speed, 0));
-		addSequential(new Turn(360*10, 1, true));
+		addSequential(new TurnOld(360*10, 1, true));
 	}
 }
